@@ -33,6 +33,20 @@ a{color:#8E4A4A}a:hover{color:#3A1A1E}
  #drinks h3{font-size:24px!important}
  #drinks p{font-size:13.5px!important}
 }
+#heroCarousel .hc-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+#heroCarousel .hc-slide.on{opacity:1;z-index:1}
+#heroCarousel .hc-slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 3.4s ease}
+#heroCarousel .hc-slide.on img{transform:scale(1)}
+#heroCarousel .hc-cap{position:absolute;left:0;right:0;bottom:0;padding:90px 24px 52px;background:linear-gradient(to top,rgba(30,10,13,.92),rgba(30,10,13,.55) 55%,rgba(30,10,13,0));display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+#heroCarousel .hc-kick{font-size:12px;font-weight:800;letter-spacing:.22em;color:#D9B48C}
+#heroCarousel .hc-title{font-family:'Bebas Neue',Impact,sans-serif;font-size:44px;line-height:.95;color:#F7F2EC;max-width:440px}
+#heroCarousel .hc-btn{margin-top:6px;background:#E4A9A0;color:#3A1A1E;text-decoration:none;font-weight:800;font-size:15px;padding:12px 20px;border-radius:6px}
+#heroCarousel .hc-btn.hc-ghost{background:rgba(242,239,234,.95)}
+#heroCarousel .hc-dots{position:absolute;z-index:2;left:24px;bottom:20px;display:flex;gap:8px}
+#heroCarousel .hc-dots button{width:26px;height:4px;border:0;padding:0;border-radius:2px;background:rgba(242,239,234,.4);cursor:pointer}
+#heroCarousel .hc-dots button.on{background:#F2EFEA}
+@media (max-width:760px){#heroCarousel{aspect-ratio:4/5!important}#heroCarousel .hc-title{font-size:28px}#heroCarousel .hc-kick{font-size:11px}#heroCarousel .hc-btn{font-size:14px;padding:10px 16px}#heroCarousel .hc-cap{padding:60px 18px 40px;gap:6px}#heroCarousel .hc-dots{left:18px;bottom:16px}}
+@media (prefers-reduced-motion:reduce){#heroCarousel .hc-slide,#heroCarousel .hc-slide img{transition:none}}
 html{scroll-behavior:smooth}
 </style>
 </head>
@@ -79,9 +93,12 @@ html{scroll-behavior:smooth}
 <div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #D9B48C;">SUNDAY</span><span style="font-size: 16px; font-weight: 600;">Noon to 8 PM</span></div>
 </div>
 </div>
-<figure style="flex: 1 1 440px; min-width: 0; margin: 0; position: relative;">
-<img src="images/hero-guests.jpg" alt="Guests toasting with Pumpkin Spice Tinis at the bar" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 40%; border-radius: 12px; display: block; box-shadow: 0 30px 60px rgba(0,0,0,0.35);">
-<figcaption style="position: absolute; left: 16px; bottom: 16px; background: rgba(242,239,234,0.95); color: #3A1A1E; font-size: 14px; font-weight: 700; padding: 10px 14px; border-radius: 6px;">Pumpkin Spice Tinis on the fall menu</figcaption>
+<figure id="heroCarousel" aria-roledescription="carousel" aria-label="Photos and event booking" style="flex: 1 1 440px; min-width: 0; margin: 0; position: relative; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.35); background:#2A1215;">
+<div class="hc-slide on" aria-hidden="false"><img src="images/hero-guests.jpg" alt="Guests toasting with Pumpkin Spice Tinis at the bar" style="object-position:center 40%"><div class="hc-cap"><span class="hc-kick">ON THE FALL MENU</span><span class="hc-title">Pumpkin Spice Tinis are back</span><a href="menu.html" class="hc-btn hc-ghost">See the Menu</a></div></div>
+<div class="hc-slide" aria-hidden="true"><img src="images/crew.jpg" alt="A group of friends celebrating at The Porch Bar" style="object-position:center 35%" loading="lazy"><div class="hc-cap"><span class="hc-kick">BIRTHDAYS AND GIRLS’ NIGHTS</span><span class="hc-title">Your party. Our bar.</span><a href="tel:+12623783001" class="hc-btn">Book an Event</a></div></div>
+<div class="hc-slide" aria-hidden="true"><img src="images/hero-bar.jpg" alt="A busy night at The Porch Bar" style="object-position:center 50%" loading="lazy"><div class="hc-cap"><span class="hc-kick">WORK PARTIES AND HOLIDAY NIGHTS</span><span class="hc-title">Holiday parties start here</span><a href="tel:+12623783001" class="hc-btn">Book an Event</a></div></div>
+<div class="hc-slide" aria-hidden="true"><img src="images/pabst-1901.jpg" alt="The 1901 Pabst Hotel building" style="object-position:center 50%" loading="lazy"><div class="hc-cap"><span class="hc-kick">SHOWERS, REUNIONS AND REHEARSALS</span><span class="hc-title">Celebrate in a building with 125 years of stories</span><a href="tel:+12623783001" class="hc-btn">Book an Event</a></div></div>
+<div class="hc-dots"><button type="button" aria-label="Show slide 1" class="on"></button><button type="button" aria-label="Show slide 2"></button><button type="button" aria-label="Show slide 3"></button><button type="button" aria-label="Show slide 4"></button></div>
 </figure>
 </div>
 </section>
@@ -213,6 +230,16 @@ var n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Chicago'}));
 var d=h[n.getDay()],hr=n.getHours()+n.getMinutes()/60,f=function(x){return x===12?'noon':x===24?'midnight':(x>12?x-12:x)+' PM'};
 var open=hr>=d[0]&&hr<d[1];el.textContent=(open?'Open now until ':'Open today ')+(open?f(d[1]):f(d[0])+' to '+f(d[1]));
 var dot=document.getElementById('dot');if(dot)dot.style.background=open?'#7BCB8C':'#D9B48C';})();
+</script>
+<script>
+(function(){var c=document.getElementById('heroCarousel');if(!c)return;
+var sl=c.querySelectorAll('.hc-slide'),dt=c.querySelectorAll('.hc-dots button'),i=0,t,paused=false;
+function go(n){sl[i].classList.remove('on');sl[i].setAttribute('aria-hidden','true');dt[i].classList.remove('on');
+i=(n+sl.length)%sl.length;sl[i].classList.add('on');sl[i].setAttribute('aria-hidden','false');dt[i].classList.add('on');}
+function start(){clearInterval(t);t=setInterval(function(){if(!paused)go(i+1)},3000);}
+dt.forEach(function(b,k){b.addEventListener('click',function(){go(k);start();});});
+c.addEventListener('mouseenter',function(){paused=true});c.addEventListener('mouseleave',function(){paused=false});
+start();})();
 </script>
 </body>
 </html>
