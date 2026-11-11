@@ -20,7 +20,7 @@ a{color:#8E4A4A}a:hover{color:#3A1A1E}
 
 @media (max-width:760px){
  h1{font-size:64px!important} h2{font-size:52px!important}
- #top>div{padding:64px 20px 56px!important}
+ #top>div{padding:40px 20px 56px!important;gap:32px!important}
  section{padding-left:20px!important;padding-right:20px!important}
  section[style*="padding: 100px"],section[style*="padding: 110px"]{padding-top:64px!important;padding-bottom:64px!important}
  img[style*="height: 460px"],img[style*="height: 440px"]{height:280px!important}
@@ -63,23 +63,26 @@ html{scroll-behavior:smooth}
 </header>
 
 <!-- Hero -->
-<section class="hero-bg" id="top" style="color: #F7F2EC;">
-<div style="max-width: 1240px; margin: 0 auto; padding: 120px 24px 110px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px;">
-<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 22px; max-width: 680px;">
+<section id="top" style="background: #3A1A1E; color: #F7F2EC;">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px;">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px;">
 <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; color: #D9B48C;">MUKWONAGO, WI</span>
-<h1 style="margin: 0; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 104px; line-height: 0.88; letter-spacing: 0.01em;">Good drinks are better with <span style="color: #E4A9A0;">good people</span></h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.5; color: #EADDD3; max-width: 540px;">Craft cocktails, 21 martinis and cold beer in a 1901 Pabst Hotel building in downtown Mukwonago. Hungry? Order Badger Burger or Marco's Tacos right from your stool.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;">
+<h1 style="margin: 0; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 96px; line-height: 0.88; letter-spacing: 0.01em;">Good drinks are better with <span style="color: #E4A9A0;">good people</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; color: #EADDD3; max-width: 520px;">Craft cocktails, 21 martinis and cold beer in a 1901 Pabst Hotel building in downtown Mukwonago. Hungry? Order Badger Burger or Marco's Tacos right from your stool.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px;">
 <a href="menu.html" style="background: #F2EFEA; color: #3A1A1E; text-decoration: none; font-weight: 700; padding: 16px 26px; border-radius: 6px;">See the Menu</a>
 <a href="https://www.google.com/maps/search/?api=1&amp;query=204A+S+Rochester+St+Mukwonago+WI+53149" target="_blank" rel="noopener" style="border: 2px solid #F2EFEA; color: #F2EFEA; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 6px;">Get Directions</a>
 </div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; border-top: 1px solid rgba(217,180,140,0.35); padding-top: 22px; max-width: 560px;">
+<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #D9B48C;">MON TO THU</span><span style="font-size: 16px; font-weight: 600;">3 PM to 9 PM</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #D9B48C;">FRI AND SAT</span><span style="font-size: 16px; font-weight: 600;">Noon to midnight</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #D9B48C;">SUNDAY</span><span style="font-size: 16px; font-weight: 600;">Noon to 8 PM</span></div>
 </div>
-<div style="flex: 1 1 280px; max-width: 340px; background: rgba(242,239,234,0.96); color: #2A1215; border-radius: 10px; padding: 24px 26px; display: flex; flex-direction: column; gap: 12px;">
-<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.22em; color: #8E4A4A;">HOURS</span>
-<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px; border-bottom: 1px solid #E2D7CA; padding-bottom: 10px;"><span style="font-weight: 600;">Mon to Thu</span><span>3 PM to 9 PM</span></div>
-<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px; border-bottom: 1px solid #E2D7CA; padding-bottom: 10px;"><span style="font-weight: 600;">Fri and Sat</span><span>Noon to midnight</span></div>
-<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span style="font-weight: 600;">Sunday</span><span>Noon to 8 PM</span></div>
 </div>
+<figure style="flex: 1 1 440px; min-width: 0; margin: 0; position: relative;">
+<img src="images/hero-guests.jpg" alt="Guests toasting with Pumpkin Spice Tinis at the bar" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 40%; border-radius: 12px; display: block; box-shadow: 0 30px 60px rgba(0,0,0,0.35);">
+<figcaption style="position: absolute; left: 16px; bottom: 16px; background: rgba(242,239,234,0.95); color: #3A1A1E; font-size: 14px; font-weight: 700; padding: 10px 14px; border-radius: 6px;">Pumpkin Spice Tinis on the fall menu</figcaption>
+</figure>
 </div>
 </section>
 
